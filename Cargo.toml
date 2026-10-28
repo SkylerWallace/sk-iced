@@ -1,0 +1,50 @@
+[package]
+name = "sk-iced"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+license = "MIT AND Apache-2.0"
+description = "Reusable Iced components, themes and motion widgets"
+readme = "README.md"
+repository = "https://github.com/SkylerWallace/sk-iced"
+keywords = ["iced", "gui", "widgets", "theme", "animation"]
+categories = ["gui"]
+publish = ["crates-io"]
+include = ["src/**", "tests/*.rs", "examples/*.rs", "docs/**", "README.md", "CHANGELOG.md", "CONTRIBUTING.md", "NOTICE", "LICENSE-*"]
+
+[features]
+default = ["theme"]
+animations = ["theme"]
+components = ["animations"]
+icons = ["components", "iced_widget/image", "iced_renderer/image"]
+raster-icons = ["icons", "dep:image"]
+svg = ["animations", "iced_widget/svg", "iced_renderer/svg"]
+theme = ["dep:iced_core", "dep:iced_widget", "dep:iced_renderer"]
+serde = ["dep:serde"]
+# Standalone Linux builds need a backend; host Iced applications can also supply it.
+x11 = ["theme", "iced_renderer/x11"]
+
+[dependencies]
+image = { version = "=0.25.8", default-features = false, optional = true }
+iced_core = { version = "=0.14.0", optional = true }
+iced_widget = { version = "=0.14.2", default-features = false, optional = true }
+iced_renderer = { version = "=0.14.0", default-features = false, features = ["tiny-skia"], optional = true }
+serde = { version = "1.0", features = ["derive"], optional = true }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "=0.61.2", features = ["Win32_Foundation", "Win32_UI_WindowsAndMessaging"] }
+
+[dev-dependencies]
+iced = { version = "=0.14.0", default-features = false, features = ["tiny-skia", "thread-pool", "advanced", "fira-sans", "x11"] }
+
+[[example]]
+name = "gallery"
+required-features = ["components"]
+
+[package.metadata.docs.rs]
+all-features = true
+
+# Keep rich example views within the native Windows stack in development builds.
+# Dependency profiles are controlled by the consuming application.
+[profile.dev.package.sk-iced]
+opt-level = 1
