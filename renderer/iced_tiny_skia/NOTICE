@@ -8,6 +8,6 @@ Original upstream copyright/license notices are retained. This combination does
 not relicense upstream Iced or File Beholder contributions as Apache-2.0.
 
 The active source combines File Beholder's retained-damage, SVG, shadow-cache,
-occlusion, fill/glyph and profiling refinements with PC Tonic clipping oracles.
+occlusion, fill/glyph and profiling refinements with PC Tonic clipping oracles and alignment-aware cached text damage.
 PROVENANCE.json and patches/manifest.json in the companion kit identify the
 input snapshots, original package, exact patch and resulting source hashes.

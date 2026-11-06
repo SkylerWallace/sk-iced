@@ -227,7 +227,7 @@ impl Layer {
             |item| {
                 item.as_slice()
                     .iter()
-                    .filter_map(Text::visible_bounds)
+                    .filter_map(text_paint_bounds)
                     .map(|bounds| (bounds * item.transformation()).expand(2.0))
                     .collect()
             },
@@ -236,7 +236,7 @@ impl Layer {
                     text_a.as_slice(),
                     text_b.as_slice(),
                     |text| {
-                        text.visible_bounds()
+                        text_paint_bounds(text)
                             .into_iter()
                             .map(|bounds| (bounds * text_a.transformation()).expand(2.0))
                             .collect()
@@ -421,4 +421,49 @@ pub(crate) fn quad_paint_bounds(quad: &Quad) -> Rectangle {
         height: quad.bounds.height + quad.shadow.blur_radius * 2.0,
     };
     quad.bounds.union(&shadow)
+}
+
+/// Cached text is positioned at an alignment anchor, not necessarily its top
+/// left corner. Damage must include the pixels above/left of that anchor, too.
+/// Keep this correction local to the companion instead of patching iced_graphics.
+fn text_paint_bounds(text: &Text) -> Option<Rectangle> {
+    use crate::core::{alignment::Vertical, text::Alignment};
+    match text {
+        Text::Cached {
+            bounds,
+            clip_bounds,
+            align_x,
+            align_y,
+            line_height,
+            ..
+        } => {
+            // Shaping can use at least one complete line even in a smaller box.
+            let height = bounds.height.max(line_height.0);
+            // Infinite layout constraints cannot safely be subtracted from an
+            // alignment anchor. Repaint the clipped viewport in that case.
+            if !bounds.width.is_finite() || !height.is_finite() {
+                return Some(*clip_bounds);
+            }
+            let x = bounds.x
+                - match align_x {
+                    Alignment::Center => bounds.width / 2.0,
+                    Alignment::Right => bounds.width,
+                    _ => 0.0,
+                };
+            let y = bounds.y
+                - match align_y {
+                    Vertical::Center => height / 2.0,
+                    Vertical::Bottom => height,
+                    Vertical::Top => 0.0,
+                };
+            Rectangle {
+                x,
+                y,
+                width: bounds.width,
+                height,
+            }
+            .intersection(clip_bounds)
+        }
+        _ => text.visible_bounds(),
+    }
 }

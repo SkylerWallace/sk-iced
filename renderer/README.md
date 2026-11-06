@@ -23,7 +23,12 @@ each host. The renderer also contains shared pixel oracles for clipped labels,
 shadow halos, fills, glyphs, SVG alpha, retained damage, caches and occlusion.
 The generic regression support opens real host-built dropdowns and compares
 repeated partial paints with a full frame at 100%/150%, light/dark appearance.
-`SK_ICED_RENDERER_CAPTURE_DIR` enables optional local menu PPM captures.
+The `changing_dropdown_labels_remain_pixel_identical_after_partial_repaints`
+consumer test retains the widget tree and framebuffer while changing labels.
+It uses actual compositor damage and compares every pixel against a full paint
+for all four styles, light/dark appearance, 100%/150%, selection changes and
+category option replacement. Cached text damage respects alignment anchors.
+`SK_ICED_RENDERER_CAPTURE_DIR` enables optional local menu/label PPM captures.
 
 The active implementation retains File Beholder's newer shadow cache, occlusion,
 SVG and retained-damage fixes and PC Tonic's clipping regression oracles. Existing
