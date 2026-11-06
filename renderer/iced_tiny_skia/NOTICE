@@ -1,0 +1,13 @@
+Shared Iced software renderer companion
+
+Upstream iced_tiny_skia 0.14.1 remains MIT-licensed; see LICENSE.
+File Beholder renderer extensions: copyright 2026 File Beholder contributors,
+MIT. PC Tonic renderer additions and clipping regression fixtures: copyright
+2026 PC Tonic contributors, Apache-2.0; see LICENSE-APACHE.
+Original upstream copyright/license notices are retained. This combination does
+not relicense upstream Iced or File Beholder contributions as Apache-2.0.
+
+The active source combines File Beholder's retained-damage, SVG, shadow-cache,
+occlusion, fill/glyph and profiling refinements with PC Tonic clipping oracles.
+PROVENANCE.json and patches/manifest.json in the companion kit identify the
+input snapshots, original package, exact patch and resulting source hashes.

@@ -50,6 +50,10 @@ Stock tiny-skia 0.14.1 shadowed views should use an opt-in `RedrawBoundary` at
 the window root. The gallery demonstrates this workaround; see the
 [renderer guide](docs/renderer-compatibility.md) for its full-frame rendering cost.
 
+PC Tonic and File Beholder select the optional repository companion in
+[renderer/](renderer/README.md): one renderer source, hash-pinned patch and shared
+regression support. The published UI crate keeps its stock-Iced default.
+
 ## Components
 
 Themes can define the overall look, including fonts, icon packs, gradients, shapes,

@@ -1,0 +1,62 @@
+{
+  "name": "iced_tiny_skia",
+  "version": "0.14.1",
+  "upstream_sha256": "c267596d742714b1853cc10c3983a367762816fc4836bd3b79f76ce76787d6f8",
+  "upstream_url": "https://crates.io/api/v1/crates/iced_tiny_skia/0.14.1/download",
+  "patch": "iced_tiny_skia-0.14.1.patch",
+  "files": {
+    "Cargo.toml": {
+      "before": "8f83ee815aec2f69de81634fe5d8399f5ac069857fe676dc157506aea42b39fb",
+      "after": "c90ab24c3ec2406ef16f534a728fd174f18a4f5c833447b82c548a4d9676f63e"
+    },
+    "LICENSE-APACHE": {
+      "before": null,
+      "after": "e3ba223bb1423f0aad8c3dfce0fe3148db48926d41e6fbc3afbbf5ff9e1c89cb"
+    },
+    "NOTICE": {
+      "before": null,
+      "after": "08feebe61cfb9648d98fe3a92deedbefbbcb2e975f683f25ae2dec5cb30639ec"
+    },
+    "src/engine.rs": {
+      "before": "e127c9156b39ce8f355f81aeae2dba3417b60623ce48ceabd50367b3c3456f13",
+      "after": "ca069fa4314e39cbd7a2668b9b025325fd8a6d2acde8072f5f9c31ff1db9c441"
+    },
+    "src/engine_regressions.rs": {
+      "before": null,
+      "after": "5b0c939e0852dfed2928a8e8ced9210b40a6ca00ad2921cfcf0aa1ca83681968"
+    },
+    "src/geometry.rs": {
+      "before": "8b6c53c2a31c2aa1e359ecf084900961681c117dddd14fcd829561bd917c5bbc",
+      "after": "f79829257d4eef691441676416b28a44dd4edacdc4d39b586cf422abb0dd38a9"
+    },
+    "src/layer.rs": {
+      "before": "929db2f028d20e0cb485beed28aa1c6362929f4d281cc76fafd9eab38e2715a6",
+      "after": "c9119d37b614559fe3b313e6754103a798c6c92b96f663624b5ee855aa2e729c"
+    },
+    "src/lib.rs": {
+      "before": "7e92fe50c473b57a433cb82fd9a866b0a5be11c2b79844c82fe26d816011a486",
+      "after": "0480d975ff8e9ae1a16de1be536d7ce3d59ec958e4881d058557c4ee21c0c6e0"
+    },
+    "src/profile.rs": {
+      "before": null,
+      "after": "a8fca5cdf401c38e2d6b5c42a554706ad010135562ad3724dd2490db94264819"
+    },
+    "src/raster.rs": {
+      "before": "4db53edb905af7f1945ee393934d02ea6943e358c5c7bb2059e8ecbe21e6be46",
+      "after": "e3ca4f1c82cd729cfcde1a32e846cd3edceb7b8c4aafa4f9715eaa63e3be677c"
+    },
+    "src/text.rs": {
+      "before": "35a355932757ec896551a9ef2b4c8bdca4e1a9153dd176f059d6fada1c37d9cb",
+      "after": "31669250d4ea7ac7a22066829b935c21d306bc246fd8076ab5eb7b0be542406c"
+    },
+    "src/vector.rs": {
+      "before": "dd766213657c5647279f6bb1a7a99df24c2722f7bcf6feb4f27faf8a72622019",
+      "after": "fdd63e8be72fe5522c0ac1b8379b56f0aaaec5d5389f030cb867940933d6ab28"
+    },
+    "src/window/compositor.rs": {
+      "before": "39c7857c67ef73994515ceb4a37aed16ff845609ce7cb89c494387770c1da46c",
+      "after": "6d814b1b6305d46bc39321f3cdb96ac312261d087d510f8d0496efa847d64596"
+    }
+  },
+  "patch_sha256": "73e99e8cc55a3eeca0323049274da80f494a4adcad616d3af31fae9fcfb3c50e"
+}

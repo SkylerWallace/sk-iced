@@ -1,0 +1,13 @@
+[package]
+name = "sk-iced-renderer-regression"
+version = "0.1.0"
+edition = "2024"
+publish = false
+license = "Apache-2.0"
+
+[dependencies]
+iced_core = "=0.14.0"
+iced_widget = { version = "=0.14.2", default-features = false }
+iced_renderer = { version = "=0.14.0", default-features = false, features = ["tiny-skia"] }
+iced_graphics = { version = "=0.14.0", default-features = false }
+tiny-skia = { version = "=0.11.4", default-features = false }

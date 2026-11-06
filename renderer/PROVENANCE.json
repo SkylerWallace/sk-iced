@@ -1,0 +1,34 @@
+{
+  "upstream": {
+    "package": "iced_tiny_skia",
+    "version": "0.14.1",
+    "sha256": "c267596d742714b1853cc10c3983a367762816fc4836bd3b79f76ce76787d6f8"
+  },
+  "inputs": {
+    "file-beholder": {
+      "base_commit": "67b69873857c6ec83646d15be87d0e04da43d9cd",
+      "snapshot": "working-tree source; hashes identify exact inputs",
+      "files": {
+        "vendor/iced_tiny_skia/src/engine.rs": "722eacb32a9f62e689b1c7f2d9c60a2026468081c851b0af9e1c077a014e3ce1",
+        "vendor/iced_tiny_skia/src/geometry.rs": "f79829257d4eef691441676416b28a44dd4edacdc4d39b586cf422abb0dd38a9",
+        "vendor/iced_tiny_skia/src/layer.rs": "c9119d37b614559fe3b313e6754103a798c6c92b96f663624b5ee855aa2e729c",
+        "vendor/iced_tiny_skia/src/lib.rs": "0480d975ff8e9ae1a16de1be536d7ce3d59ec958e4881d058557c4ee21c0c6e0",
+        "vendor/iced_tiny_skia/src/primitive.rs": "fe921bf12924e7a9ae8b426bfe1cc1dd08df488010d11c375814f28b50ac5521",
+        "vendor/iced_tiny_skia/src/profile.rs": "4c72b4db1d447d594f3066ce0d53ab8585cd424911dd6be70225f2326d5dacef",
+        "vendor/iced_tiny_skia/src/raster.rs": "e3ca4f1c82cd729cfcde1a32e846cd3edceb7b8c4aafa4f9715eaa63e3be677c",
+        "vendor/iced_tiny_skia/src/settings.rs": "48d1224197b9bd310090c3ecbcf4a01627158c540e5d4c88201059f19c0ef5c7",
+        "vendor/iced_tiny_skia/src/text.rs": "31669250d4ea7ac7a22066829b935c21d306bc246fd8076ab5eb7b0be542406c",
+        "vendor/iced_tiny_skia/src/vector.rs": "fdd63e8be72fe5522c0ac1b8379b56f0aaaec5d5389f030cb867940933d6ab28",
+        "vendor/iced_tiny_skia/src/window.rs": "e9057fd6faa34064bd1202df01c76332f896dec635f8c8d7985ec8054437fe8c",
+        "vendor/iced_tiny_skia/src/window/compositor.rs": "6d814b1b6305d46bc39321f3cdb96ac312261d087d510f8d0496efa847d64596"
+      }
+    },
+    "pctonic": {
+      "base_commit": "0347bc44fcd7c400d14f4fdb2a1b4c540ddcd378",
+      "snapshot": "working-tree source; hashes identify exact inputs",
+      "files": {
+        "build/iced-patched/iced_tiny_skia/src/engine.rs": "bbc16e1bc0e63e4ba5cca77d3ccb39e771349dfb0ae9fb08fe7515b51f63a557"
+      }
+    }
+  }
+}

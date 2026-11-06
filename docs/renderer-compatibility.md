@@ -1,7 +1,9 @@
 # Renderer compatibility
 
 sk-iced 0.1 targets Iced 0.14 and enables its stock tiny-skia software renderer.
-The crate contains no renderer fork, patches or application-specific paths.
+The published UI crate contains no renderer fork or application-specific paths.
+An optional repository companion under `renderer/` supplies the common patched
+backend and generic regression support used by PC Tonic and File Beholder.
 Consumers do not need a [patch.crates-io] section. Use compatible Iced versions
 and enable SVG/image features explicitly when needed.
 
@@ -21,8 +23,8 @@ normal Iced window and exercises all four style presets, light/dark modes,
 disabled samples, reduced motion.
 
 Downstream renderer patches can change shadow rasterization, SVG alpha handling,
-retained-frame behavior and cache performance. They are not distributed by this
-crate. Passing sk-iced tests does not establish pixel identity or equal resize/
+retained-frame behavior and cache performance. The optional common companion is distributed in this repository, outside the
+published UI crate. Passing sk-iced tests does not establish pixel identity or equal resize/
 scroll throughput between a patched renderer and stock Iced. Benchmark the actual
 application renderer when making performance claims.
 
@@ -64,3 +66,18 @@ instead supply its window backend through feature unification. Policy-only build
 need no window backend. Windows and macOS require no X11 flag. Linux x86_64 and
 macOS ARM64 library cross-checks pass; these do not validate native display,
 clipboard or input integration.
+
+## Shared application companion
+
+PC Tonic and File Beholder point their root Cargo patch to the same
+`renderer/iced_tiny_skia` directory and their dev dependency to
+`renderer/regression`. Each host builds its real themed dropdowns and invokes
+one shared incremental-versus-full repaint assertion. The renderer's pixel
+oracles are also the same source and run through both dependency graphs.
+
+The companion retains the newer File Beholder cache, occlusion, SVG and retained
+frame fixes plus PC Tonic clipping oracles. Build/package verification checks the
+single `renderer/SHA256SUMS.json` snapshot and rejects drift. Matching companion
+sources, licenses and patches are included in both apps' source exports, with
+relative manifest paths rewritten for standalone rebuilds. See
+`renderer/README.md` for update and validation commands.
